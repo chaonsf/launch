@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<ul>
+				<li v-for='value in object'>{{value}}</li>
+			</ul>
+		</div>
+	</body>
+	<script src="js/vue.js"></script>
+	<script>
+		new Vue({
+			el:'#app',
+			data:{
+				object:{
+					name:'李超',
+					six:'男',
+					id:'289197额8089'
+				}
+			}
+		})
+	</script>
+</html>

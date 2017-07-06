@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="demo">
+			<span v-on:click="eui()" v-bind:cutomid="id">{{message}}</span>
+		</div>
+	</body>
+	<script src="js/vue.js"></script>
+	<script>
+		let obj={
+		  	message:'asdkll;l;',
+		  	id:'123'
+		 }
+		  new Vue({
+			el:"#demo",
+			data:obj,
+			methods:{
+				eui(){
+					console.log(1)
+				}
+			}
+		})
+		/*var arr =[1,2,3,4,5];
+		//求数组的每一项的倍数，放在另一个数组中
+	var newarr=	arr.map(function(item){
+			return item*2;
+		})
+	console.log(newarr)*/
+	</script>
+</html>

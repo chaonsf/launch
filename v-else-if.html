@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<div v-if='type==="a"'>a</div>
+			<div v-else-if="type==='b'">b</div>
+			<div v-else-if="type==='c'">c</div>
+			<div v-else>NOT a b c</div>
+		</div>
+	</body>
+	<script src="js/vue.js"></script>
+	<script>
+		new Vue({
+			el:'#app',
+			data:{
+				type:'d'
+			}
+		})
+	</script>
+</html>
+<!--v-else 、v-else-if 必须跟在 v-if 或者 v-else-if之后。-->

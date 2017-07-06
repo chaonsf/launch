@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<p v-if='seen'>你是傻逼吗</p>
+			<template v-if='ok'>
+				<h1>合伙人啊</h1>
+				<p>学的不仅是技术，更是梦想</p>
+			</template>
+		</div>
+	</body>
+	<script src="js/vue.js"></script>
+	<script>
+		new Vue({
+			el:'#app',
+			data:{
+				seen:false,
+				ok:true
+			}
+		})
+	</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.bg{
+				background: green;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="demo"></div>
+	</body>
+	<script src="js/vue.min.js"></script>
+	<script>
+		var vm=new Vue({
+			el:"#demo",
+			render(createElement){
+				return createElement(
+					"ul",
+					{
+						class:{
+							bg:true
+						},
+						attrs:{
+							abc:"miaov"
+						}
+					},
+					[
+					  createElement("li",1),
+					   createElement("li",2),
+					    createElement("li",3),
+					]
+				)
+			}
+		})
+	</script>
+</html>

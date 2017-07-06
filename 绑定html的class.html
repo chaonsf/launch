@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.active{
+				background: red;
+			}
+			.hasError{
+				background:blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="static" v-bind:class="classObject" v-html="message"></div>
+		<!--可以查看最后的渲染效果-->
+	</body>
+	<script src="js/vue.min.js"></script>
+	<script>
+		new Vue({
+			el:'.static',
+			data:{
+				message:"vue渲染",
+				classObject:{
+					active:false,
+				    hasError:true
+				}
+			}
+		})
+	</script>
+</html>

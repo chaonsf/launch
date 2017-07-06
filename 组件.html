@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				background:blanchedalmond;
+				width: 300px;
+				height: 200px;
+				margin-top: 20px;
+			}
+			ul,li{
+				list-style: none;
+			}
+			ul li:hover{
+				background: blue;
+				width: 150px;
+             color: #fff;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<cut-yrty btn-value="查询"></cut-yrty>
+			<cut-yrty btn-value="搜索"></cut-yrty>
+		</div>
+		
+	</body>
+	<script src="js/vue.js"></script>
+	<script type="text/javascript">
+		Vue.component("cut-yrty",{
+			data:function(){
+				return {
+					selectShow:false
+				};
+			},
+			props:["btnValue"],
+			template:`<div>
+			<input type="text"  @click="selectShow=!selectShow" />
+			<input type="button" v-bind:value="btnValue">
+			 <ul v-show="selectShow">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+			</div>`
+		})
+		new Vue({
+			el:'#app',
+		})
+	</script>
+</html>

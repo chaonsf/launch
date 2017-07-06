@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<h3>自定义模板</h1>
+			<cusrt>
+			 <!--
+              渲染的数据是父组件中的数据
+            -->	
+            {{message}}
+			</cusrt>
+		</div>
+	</body>
+	<script src="js/vue.min.js"></script>
+	 <script>
+	 	Vue.component('cusrt',{
+	 		data(){
+	 			return{
+	 				message:"我是子组件的数据"
+	 			}
+	 		},
+	 		template:`
+	 		<div>
+	 		<p>第1条提醒 </p> 
+	 		<slot></slot>
+	 		</div>`
+	 	})
+	 	new Vue({
+	 		el:'#app',
+	 		data:{
+	 			message:"我是父组件的数据"
+	 		}
+	 	})
+	 </script>
+</html>

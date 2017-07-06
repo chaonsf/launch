@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				background:blanchedalmond;
+				width: 300px;
+				height: 200px;
+				margin-top: 20px;
+			}
+			ul,li{
+				list-style: none;
+			}
+			ul li:hover{
+				background: blue;
+				width: 150px;
+             color: #fff;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<cut-yrty btn-value="查询" v-bind:list="list1"></cut-yrty>
+			<cut-yrty btn-value="搜索" v-bind:list="list2"></cut-yrty>
+		</div>
+		
+	</body>
+	<script src="js/vue.js"></script>
+	<script type="text/javascript">
+		Vue.component("cut-yrty",{
+			data:function(){
+				return {
+					selectShow:false,
+					val:''
+				};
+			},
+			props:["btnValue","list"],
+			template:`<div>
+			<input type="text"  @click="selectShow=!selectShow"  v-bind:value="val"/>
+			<input type="button" v-bind:value="btnValue">
+			<cut-list v-show="selectShow" v-bind:list="list" v-on:receive="changeValueHandle"></cut-list> 
+			</div>`,
+			methods:{
+				changeValueHandle(value){
+					//alert("我被触发了，值为："+value)
+					this.val=value
+				}
+			}
+		})
+		Vue.component("cut-list",{
+			props:["list"],
+			template:` <ul>
+			<li v-for="item of list" @click="selectValueHandle(item)">{{item}}</li>
+		</ul>`,
+		methods:{
+			selectValueHandle(item){
+				//告知父级，改变val的值，需要触发一个自定义事件,把想改变的数据传给它
+				this.$emit("receive",item)
+			}
+		  }
+		})
+		new Vue({
+			el:'#app',
+			data:{
+				list1:["angular","nodejs","vuejs"],
+				list2:["English","math","music"]
+			}
+		})
+	</script>
+</html>

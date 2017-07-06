@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<p v-text='site'></p>
+		</div>
+	</body>
+	<script src="js/vue.js"></script>
+	<script>
+		var vm=new Vue({
+			el:'#app',
+			data:{
+				name:'Google',
+				url:'http://www.google.com'
+			},
+			computed:{
+				site:{
+					get:function(){
+						return this.name+''+this.url
+					},
+					set:function(newValue){
+						var names=newValue.split('')
+						this.name=newValue.slice(0,4)
+						this.url=newValue.slice(5)
+					}
+				}
+			}
+		})
+		/*调用setter，vm.name和vm.url也会被对应更新*/
+		vm.site = '菜鸟教程 http://www.runoob.com';
+		document.write('name: ' + vm.name);
+        document.write('<br>');
+        document.write('url: ' + vm.url);
+	</script>
+</html>
