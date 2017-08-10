@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		  <ul class="ulbox" @click='ready()'>
+              <li v-for="item in items" v-bind:id="item.provincecode">
+               {{item.provincename}}
+           </li>
+         </ul>
+
+	</body>
+	<script src="js/vue.js"></script>
+	<script src="https://cdn.bootcss.com/vue-resource/1.3.4/vue-resource.js"></script>
+	<script>
+		new Vue({
+			el:'.ulbox',
+			data:{
+				items:[
+				{message:'第一个'},
+				{message:'第二个'},
+				]
+			},
+			methods:{
+				ready(){
+				this.$http({
+					url:'http://wechat.niuluo-tech.cn/dental/areaSelect/getProvince',
+					method:'get'
+				}).then(function(res){
+					console.log(res.data);
+					console.log(this);
+					this.items=res.data.data;
+					
+				})
+			 }
+			}
+		})
+	</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		  <ul class="ulbox" @click='ready()'>
+              <li v-for="item in items" v-bind:id="item.provincecode">
+              {{item.provincename}}
+           </li>
+         </ul>
+
+	</body>
+	<script src="js/vue.js"></script>
+	<script src="js/axios.min.js"></script>
+	<script>
+		Vue.prototype.$http=axios;
+		new Vue({
+			el:'.ulbox',
+			data:{
+				items:[
+				{message:'第一个'},
+				{message:'第二个'},
+				]
+			},
+			methods:{
+				ready(){
+				_this=this
+				 axios.get('http://wechat.niuluo-tech.cn/dental/areaSelect/getProvince')
+				.then(function(res){
+					_this.items=res.data.data;
+					
+				})
+			}
+			}
+		})
+	</script>
+</html>

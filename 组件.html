@@ -22,7 +22,8 @@
 	</head>
 	<body>
 		<div id="app">
-			<cut-yrty btn-value="查询"></cut-yrty>
+			<cut-yrty btn-value="查询">
+			</cut-yrty>
 			<cut-yrty btn-value="搜索"></cut-yrty>
 		</div>
 		
@@ -40,14 +41,22 @@
 			<input type="text"  @click="selectShow=!selectShow" />
 			<input type="button" v-bind:value="btnValue">
 			 <ul v-show="selectShow">
-			<li>1</li>
+			<li @click="yu">1</li>
 			<li>2</li>
 			<li>3</li>
 		</ul>
-			</div>`
+			</div>`,
+		methods:{
+			yu(){
+				alert(1)
+			}
+		}
 		})
 		new Vue({
 			el:'#app',
+			methods:{
+				
+			}
 		})
 	</script>
 </html>
